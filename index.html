@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css" />
+<title>Photo Gallery</title>
+
+<body>
+    <div class="row">
+        <div class="column">
+            <img class="demo cursor" src="images/Beat.jpg" style="width:100%" onclick="currentSlide(1)"
+                alt="Beat">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/BMW.jpg" style="width:100%" onclick="currentSlide(2)"
+                alt="BMW">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Ford.jpg" style="width:100%" onclick="currentSlide(3)"
+                alt="Ford">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Jeep.jpg" style="width:100%" onclick="currentSlide(4)"
+                alt="Jeep">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/KIA.webp" style="width: 100%" onclick="currentSlide(5)"
+                alt="KIA">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Mahindra.jpg" style="width:100%" onclick="currentSlide(6)"
+                alt="Mahindra">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Mercedes.jpg" style="width:100%" onclick="currentSlide(7)"
+                alt="Mercedes">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Rolls Royce.png" style="width:100%" onclick="currentSlide(8)"
+                alt="Rolls Royce">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Suzuki.jpg" style="width: 100%" onclick="currentSlide(9)"
+                alt="Suzuki">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="images/Thar.webp" style="width:100%" onclick="currentSlide(10)"
+                 alt="Thar">
+        </div>
+
+    </div>
+    <h2 style="text-align:center"> Photo Gallery </h2>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 10</div>
+            <img src="images/Beat.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 10</div>
+            <img src="images/BMW.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 10</div>
+            <img src="images/Ford.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 10</div>
+            <img src="images/Jeep.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 10</div>
+            <img src="images/KIA.webp" style="width: 50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 10</div>
+            <img src="images/Mahindra.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">7 / 10</div>
+            <img src="images/Mercedes.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">8 / 10</div>
+            <img src="images/Rolls Royce.png" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">9 / 10</div>
+            <img src="images/Suzuki.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">10 / 10</div>
+            <img src="images/Thar.webp" style="width:50%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("demo");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += "active";
+                captionText.innerHTML = dots[slideIndex - 1].alt;
+            }
+        </script>
+
+</body>
+
+</html>
